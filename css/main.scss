@@ -1,0 +1,187 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://source.unsplash.com/1920x1080/?weather');
+    margin: 0;
+}
+
+.weather-card {
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    .search-city {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .input-city {
+            width: 250px;
+            font-family: "Poppins", sans-serif;
+            border: none;
+            outline: none;
+            padding: 1em;
+            // border-radius: 10px 0px 0px 10px;
+            border-radius: 10px;
+            &:hover {
+                transform: scale(1.005);
+            }
+        }
+        .search-btn {
+            border: none;
+            outline: none;
+            background: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 0.5em;
+            margin-right: -12px;
+            // border-radius: 0px 10px 10px 0px;
+            cursor: pointer;
+            &:hover {
+                i {
+                    color: whitesmoke;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    .weather {
+        text-align: center;
+        .key {
+            font-family: 'Merriweather', serif;
+            color: rgb(225, 225, 225);
+        }
+        .city {
+            margin: 10px 0 0 0;
+            font-size: 2em;
+        }
+        .country {
+            margin: -5px 0px 0px 0px;
+            font-size: 1.25em;
+        }
+        .temp {
+            font-size: 4em;
+            margin: 15px;
+            .degrees {
+                font-size: .55em;
+            }
+        }
+        .icon-image {
+            margin: -25px 0px;
+        }
+        .description {
+            margin-top: -5px;
+            margin-bottom: 20px;
+        }
+        .humidity {
+            margin: 20px;
+        }
+        .flex-sun {
+            margin-top: 10px;
+            .sunrise {
+                margin: 15px;
+            }
+            .sunset {
+                margin: 15px;
+            }
+            img {
+                height: 50px;
+            }
+        }
+    }
+}
+
+// ----------- MEDIA QUERIES
+@media (min-width: 576px) {
+    .weather {
+        .flex-sun {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                height: 75px !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .weather-card {
+        .search-city {
+            .input-city {
+                width: 500px;
+            }
+        }
+        .weather {
+            .city {
+                font-size: 2.5em;
+            }
+            .description {
+                font-size: 1.25em;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .weather-card {
+        .search-city {
+            .input-city {
+                width: 600px;
+            }
+        }
+        .weather {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // padding-top: 20px;
+            .left {
+                flex-basis: 50%;
+                .temp {
+                    margin: 20px;
+                    font-size: 4.5em;
+                }
+            }
+            .right {
+                padding-top: 20px;
+                flex-basis: 50%;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .weather-card {
+        .search-city {
+            .input-city {
+                width: 650px;
+            }
+        }
+        .weather {
+            .left {
+                margin-right: -20px;
+            }
+            .right {
+                margin-left: -20px;
+            }
+            .flex-sun {
+                margin-top: 10px;
+                .sunrise {
+                    margin: 10px 15px;
+                }
+                .sunset {
+                    margin: 10px 15px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1440px) {}
+
+.icon-wrap .icon,
+.icon-wrap .wi {
+    font-size: 500px;
+}
