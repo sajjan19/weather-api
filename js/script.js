@@ -36,6 +36,7 @@ function renderWeather(city) {
     `;
     document.querySelector(".input-city").value = "";
     document.querySelector(".weather").insertAdjacentHTML("beforeend", markup);
+    document.body.style.backgroundImage = `url('https://source.unsplash.com/1920x1080/?${city.weather[0].main}')`;
 }
 
 function renderError(msg) {
