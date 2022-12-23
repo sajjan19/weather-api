@@ -42,18 +42,6 @@ function renderWeather(city) {
     renderBackground(city.weather[0].main.toLowerCase());
 }
 
-function renderBackground(condition) {
-    document.body.style.backgroundImage = `url('./assets/weather/${condition}.jpeg')`;
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundPosition = 'center';
-}
-
-function renderError(msg) {
-    document.querySelector(".input-city").value = "";
-    document.querySelector(".weather").insertAdjacentText('beforeend', msg);
-}
-
 function fetchWeather(city) {
     document.querySelector(".weather").innerHTML = "";
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
@@ -73,6 +61,20 @@ function fetchWeather(city) {
 // HELPERS
 function convertCountryCode(country) {
     return new Intl.DisplayNames(["en"], { type: "region" }).of(country);
+}
+
+// Match the background image to weather conditions
+function renderBackground(condition) {
+    document.body.style.backgroundImage = `url('./assets/weather/${condition}.jpeg')`;
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = 'center';
+}
+
+// If city not found, update this message to let user know no city found
+function renderError(msg) {
+    document.querySelector(".input-city").value = "";
+    document.querySelector(".weather").insertAdjacentText('beforeend', msg);
 }
 
 function capitalizeWeatherDescription(description) {
