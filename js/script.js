@@ -2,7 +2,7 @@ const API_KEY = "0197c6051104f3988010cc8ea96f18e3";
 const GOOGLEAPI = "AIzaSyBV3H6KrM3FmEwkWAcGBEuerUffJhvCQe0";
 
 function renderWeather(city) {
-    console.log(city);
+    // console.log(city);
     const markup = `
     <div class="left">
         <h2 class="city">${city.name}</h2>
@@ -46,11 +46,11 @@ function fetchWeather(city) {
     document.querySelector(".weather").innerHTML = "";
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
         .then((response) => {
-            console.log(response)
+            // console.log(response);
             if (!response.ok) {
                 throw new Error('City not found');
             }
-            return response.json()
+            return response.json();
         })
         .then((data) => renderWeather(data))
         .catch(err => {
@@ -90,7 +90,7 @@ document.querySelector(".search-btn").addEventListener("click", function() {
     fetchWeather(document.querySelector(".input-city").value);
 });
 
-document.querySelector(".input-city").addEventListener("keyup", function() {
+document.querySelector(".input-city").addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
         fetchWeather(document.querySelector(".input-city").value);
     }
