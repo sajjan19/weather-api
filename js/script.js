@@ -34,14 +34,23 @@ function renderWeather(city) {
         </div>
     </div>
     `;
+
     document.querySelector(".input-city").value = "";
     document.querySelector(".weather").insertAdjacentHTML("beforeend", markup);
-    document.body.style.backgroundImage = `url('https://source.unsplash.com/1920x1080/?${city.weather[0].main}')`;
+
+    // Change the background to match the weather of city
+    renderBackground(city.weather[0].main.toLowerCase());
+}
+
+function renderBackground(condition) {
+    document.body.style.backgroundImage = `url('./assets/weather/${condition}.jpeg')`;
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = 'center';
 }
 
 function renderError(msg) {
     document.querySelector(".input-city").value = "";
-
     document.querySelector(".weather").insertAdjacentText('beforeend', msg);
 }
 
