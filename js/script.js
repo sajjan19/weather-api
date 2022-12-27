@@ -1,6 +1,3 @@
-const API_KEY = "0197c6051104f3988010cc8ea96f18e3";
-const GOOGLEAPI = "AIzaSyBV3H6KrM3FmEwkWAcGBEuerUffJhvCQe0";
-
 function renderWeather(city) {
     // console.log(city);
     const markup = `
